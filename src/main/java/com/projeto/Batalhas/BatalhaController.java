@@ -1,6 +1,8 @@
 package com.projeto.Batalhas;
 
 import jakarta.validation.Valid;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +18,7 @@ public class BatalhaController {
     public BatalhaController(BatalhaService batalhaService) {
         this.batalhaService = batalhaService;
     }
+
 
     @GetMapping
     public ResponseEntity<List<BatalhaDTO>> listarBatalhas() {
