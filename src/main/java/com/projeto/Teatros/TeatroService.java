@@ -1,5 +1,6 @@
 package com.projeto.Teatros;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class TeatroService {
         this.teatroMapper = teatroMapper;
     }
 
-
+    @Cacheable("lista_teatros")
     public List<TeatroDTO> listarTeatros() {
         List<TeatroModel> teatros = teatroRepo.findAll();
         return teatros.stream()
